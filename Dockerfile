@@ -70,10 +70,11 @@ RUN \
   && apk add --virtual .rundeps $runDeps \
   && apk del .builddeps \
   && gem update --system $RUBYGEMS_VERSION \
+  && mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
+  && chmod 777 "$GEM_HOME" "$BUNDLE_BIN" \
+  && cd "$GEM_HOME" \
+  && gem install bundler --version "$BUNDLER_VERSION" \
   && rm -rf \
     /usr/src/ruby \
     /usr/share/man \
     /tmp/* \
-  && gem install bundler --version "$BUNDLER_VERSION" \
-  && mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
-  && chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
