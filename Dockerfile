@@ -10,7 +10,7 @@ ENV RUBY_MAJOR=2.3 \
     BUNDLE_PATH=/usr/local/bundle \
     BUNDLE_BIN=/usr/local/bundle/bin \
     BUNDLE_APP_CONFIG=/usr/local/bundle \
-    PATH=/usr/local/bundle:$PATH
+    PATH=/usr/local/bundle/bin:$PATH
 
 RUN \
   addgroup -S ruby \
